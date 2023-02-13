@@ -41,6 +41,7 @@ app.post("/education", async (req, res) => {
   try {
     let education = new educationTypeModel({ title, text });
     await education.save();
+    
     res.status(404).send(education);
   } catch (e) {
     res.status(500).send(e);
