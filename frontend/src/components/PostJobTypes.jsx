@@ -2,26 +2,26 @@ import { Heading, Input, Stack } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
 
-export default function PostJobTypes() {
-  const [job, setJob] = useState({
+export default function PostEducationTypes() {
+  const [Education, setEducation] = useState({
     title: "",
     text: "",
   });
   function handleChange(e) {
-    setJob({ ...job, [e.target.name]: e.target.value });
+    setEducation({ ...Education, [e.target.name]: e.target.value });
   }
 
-  async function handleJobSubmit(e) {
+  async function handleEducationSubmit(e) {
     e.preventDefault();
     try {
-      axios.post("https://shy-puce-shrimp-yoke.cyclic.app/job", job);
+      axios.post("https://shy-puce-shrimp-yoke.cyclic.app/Education", Education);
     } catch (e) {
       console.log(e.message);
     }
     e.target.reset()
   }
   return (
-    <form onSubmit={handleJobSubmit}>
+    <form onSubmit={handleEducationSubmit}>
       <Stack w="30%" m="auto" mt={"5%"} gap={"10px"}>
         <Heading>Opt for a different course here...</Heading>
         <Input

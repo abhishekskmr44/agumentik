@@ -17,14 +17,14 @@ import axios from "axios";
 
 
 export default function About() {
-  const [jobType,setJobType]=useState([])
+  const [EducationType,setEducationType]=useState([])
   useEffect(()=>{
-    FetchJobType()
+    FetchEducationType()
   },[])
-  async function FetchJobType(){
+  async function FetchEducationType(){
     try{
-      let {data}=await axios.get("https://shy-puce-shrimp-yoke.cyclic.app/job")
-      setJobType(data)
+      let {data}=await axios.get("https://shy-puce-shrimp-yoke.cyclic.app/Education")
+      setEducationType(data)
 
     }catch(e){
       console.log(e.message)
@@ -45,7 +45,7 @@ export default function About() {
 
         <Container maxW={"6xl"} mt={10}>
           <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
-            {jobType?.map((feature) => (
+            {EducationType?.map((feature) => (
               <HStack key={feature._id} align={"top"}>
                 <Box color={"green.400"} px={2}>
                   <Icon as={CheckIcon} />
